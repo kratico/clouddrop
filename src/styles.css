@@ -1,0 +1,33 @@
+@tailwind base;
+
+@tailwind components;
+
+body {
+    @apply bg-gray-200 text-gray-800;
+}
+
+.btn-primary {
+    @apply bg-gray-700 text-white rounded p-2 cursor-pointer transition-colors duration-300;
+}
+
+.btn-primary:hover {
+    @apply bg-gray-800;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animation-spin {
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+@tailwind utilities;

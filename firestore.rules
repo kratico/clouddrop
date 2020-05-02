@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /drops/{document=**} {
+      allow get, create: if true;
+      
+      match /caller-events/{eventId} {
+      	allow list: if true;
+      }
+      
+      match /callee-events/{eventId} {
+      	allow list: if true;
+      }
+    }
+  }
+}
