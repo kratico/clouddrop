@@ -1,5 +1,7 @@
 # Cloud Drop
 
+![CI](https://github.com/kratico/clouddrop/workflows/CI/badge.svg)
+
 Realtime peer to peer file sharing with WebRTC.
 
 https://cloud-drop-4aa6b.web.app
