@@ -28,16 +28,18 @@ jobs:
 
       - run: npm ci
       - run: npm run lint
-      - run: npm run build -- --public-url /clouddrop/
+      - run: npm run build
 
       - name: Deploy
         run: |
+          echo ${{ github.actor }}
+          echo ${{ github.repository_owner }}
           cd dist
           git init
           git checkout -b gh-pages
           git add .
-          git config user.email "noreply@github.com"
-          git config user.name "GitHub Action"
+          git config user.email "${{ github.repository_owner }}@@users.noreply.github.com"
+          git config user.name "Github Action"
           git commit -m "Update GH Pages"
-          git remote add origin https://${{ secrets.REPO_GITHUB_TOKEN }}@github.com/kratico/clouddrop.git
+          git remote add origin https://${{ secrets.REPO_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push -f -u origin gh-pages
