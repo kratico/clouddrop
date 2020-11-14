@@ -32,8 +32,9 @@ jobs:
 
       - name: Deploy
         run: |
-          echo ${{ github.actor }}
-          echo ${{ github.repository_owner }}
+          git status
+          git branch
+          git remote -v
           cd dist
           git init
           git checkout -b gh-pages
